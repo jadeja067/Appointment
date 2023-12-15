@@ -8,6 +8,9 @@ import { RightComponent } from './components/right/right.component';
 import { ContainerComponent } from './components/container/container.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule} from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     BrowserModule,
     AppRoutingModule,
     CalendarModule,
-    FullCalendarModule
+    FullCalendarModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
