@@ -1,3 +1,7 @@
 .full-heigth{
     height: 100dvh;
 }
+::ng-deep .fc-daygrid-day-number{
+    color: black;
+    text-decoration: none;
+}
