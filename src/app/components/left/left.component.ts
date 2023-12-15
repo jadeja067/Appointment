@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {CalendarCommonModule } from 'angular-calendar'
 @Component({
   selector: 'app-left',
   templateUrl: './left.component.html',
