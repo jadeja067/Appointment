@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {CalendarCommonModule } from 'angular-calendar'
+import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
+import dayGridPlugin from '@fullcalendar/daygrid';
+
 @Component({
   selector: 'app-left',
   templateUrl: './left.component.html',
   styleUrls: ['./left.component.css']
 })
 export class LeftComponent implements OnInit {
-
-  constructor() { }
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth',
+    plugins: [dayGridPlugin]
+  };
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
   }

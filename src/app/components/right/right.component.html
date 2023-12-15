@@ -1,5 +1,5 @@
-<div class="h-100 d-flex flex-column mt-4 gap-3">
-    <div class=" d-flex justify-content-evenly mt-4 gap-3">
+<div class="h-100 d-flex flex-column pt-4 gap-3">
+    <div class=" d-flex justify-content-evenly gap-3">
         <div>
             <h1>
                 Appointment Applications
@@ -15,17 +15,62 @@
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content w-100">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            ...
+                            <form  class="">
+                                <div class=" mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Name">
+                                </div>
+                                <div class=" mb-3">
+                                    <label for="Date">Date</label>
+                                    <input type="date" class="form-control" id="Date" placeholder="Date">
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <div class="">
+                                            <label for="Time">Time From</label>
+                                            <input type="text" class="form-control" id="Time" placeholder="Time From">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="">
+                                            <label for="Time">Time To</label>
+                                            <input type="text" class="form-control" id="Time" placeholder="Time To">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" mb-3">
+                                    <input type="checkbox" class="form-check-input" name="checkbox" id="checkbox">&nbsp;
+                                    <label class="form-check-label" for="checkbox">Check me out</label>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <div class="">
+                                            <label for="NickName">NickName</label>
+                                            <input type="text" class="form-control" id="NickName" placeholder="NickName">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="">
+                                            <label for="Email">Email</label>
+                                            <input type="email" class="form-control" id="Email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <label for="floatingTextarea2">Description</label>
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                  </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
+                            <button type="button" class="btn btn-primary">Save</button>
                         </div>
                     </div>
                 </div>
@@ -34,11 +79,8 @@
     </div>
     <hr>
     <div>
-        <div class="d-flex flex-wrap gap-5 ms-3">
-            <div class="datesWidthIndividual" *ngFor="let date of datesArray">
-                <div>{{date}}</div>
-                hey
-            </div>
+        <div class="p-2 d-flex align-items-center justify-content-center">
+            <full-calendar [options]="calendarOptions" class="w-75"></full-calendar>
         </div>
     </div>
 </div>
