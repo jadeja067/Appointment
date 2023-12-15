@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
+import { CalendarOptions } from '@fullcalendar/core'; 
 import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
@@ -10,6 +10,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 export class LeftComponent implements OnInit {
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
+    height: 400,
     plugins: [dayGridPlugin]
   };
   constructor() { 
