@@ -1,7 +1,12 @@
 .full-heigth{
     height: 100dvh;
 }
-
+.left-calendar{
+    box-shadow: 1px 1px 2px 2px rgb(0, 0, 0, .1), -1px -1px 2px 2px rgb(0, 0, 0, .1);
+    border-radius: 2px;
+    width: 300px;
+    padding: 5px;
+}
 ::ng-deep .left-calendar td{
     height: 5px;
 }
@@ -29,10 +34,44 @@
 ::ng-deep .left-calendar .fc-daygrid-day-bg{
     display: none;
 }
-::ng-deep .left-calendar .fc-col-header {
-    display: none;
+::ng-deep .left-calendar .fc-col-header,
+::ng-deep .fc-today-button {
+    display: none !important;
 }
 
+::ng-deep .fc-toolbar-title{
+    font-size: 1em !important;
+}
+
+::ng-deep .fc-header-toolbar{
+    position: relative !important;
+    width: 300px !important;
+}
+
+::ng-deep .fc-toolbar-chunk:first-child{
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+::ng-deep .fc-toolbar-chunk:last-child{
+    width: 100% !important;
+}
+::ng-deep .fc-button-group{
+    width: 100%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-left: 0 !important;
+}
+::ng-deep .fc-button{
+    flex: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: black !important;
+}
+::ng-deep .fc-button:focus{
+    box-shadow: none !important;
+}
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
-    width: 200px !important;
+    width: 300px !important;
 }
