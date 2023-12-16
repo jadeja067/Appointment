@@ -41,6 +41,7 @@ export class RightComponent implements OnInit {
   }
 
   onSubmit() {
+    
     this.formData = [...this.formData,{
       name:this.appointmentForm.value.name,
       date:this.appointmentForm.value.date,
