@@ -1,6 +1,11 @@
 .full-heigth{
     height: 100dvh;
 }
+
+::ng-deep .left-calendar td{
+    height: 5px;
+}
+
 ::ng-deep .left-calendar .fc-daygrid-day-number{
     color: black;
     text-decoration: none;
@@ -26,4 +31,7 @@
 }
 ::ng-deep .left-calendar .fc-col-header {
     display: none;
+}
+::ng-deep .left-calendar .fc-scrollgrid-sync-table{
+    width: 300px !important;
 }
