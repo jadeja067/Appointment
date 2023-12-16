@@ -83,10 +83,6 @@
     border: 2px solid black;
 }
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
-<<<<<<< HEAD
-    width: 302px !important;
-    height: 290px !important;
-=======
     width: 300px !important;
     height: 200px !important;
     /* background-color: red !important; */
@@ -94,5 +90,4 @@
 
 ::ng-deep .left-calendar .fc-scroller-liquid-absolute{
     position: static !important;
->>>>>>> 87d6d13eb647153fac55bc408265c43ef45b5ef0
 }
