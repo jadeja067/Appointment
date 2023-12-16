@@ -14,13 +14,13 @@ export class LeftComponent implements OnInit {
     expandRows: true,
     plugins: [dayGridPlugin]
   };
-  cal! : Calendar;
+  // cal! : Calendar;
   constructor() { 
     
   }
 
   ngOnInit(): void {
-    this.cal.gotoDate('2018-06-01')
+    // this.cal.gotoDate('2018-06-01')
   }
 
 }
