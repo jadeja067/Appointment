@@ -21,3 +21,9 @@
     padding: 0;
     margin: 0;
 }
+::ng-deep .left-calendar .fc-daygrid-day-bg{
+    display: none;
+}
+::ng-deep .left-calendar .fc-col-header {
+    display: none;
+}
