@@ -26,7 +26,7 @@ export class RightComponent implements OnInit, OnChanges {
     themeSystem: 'bootstrap5',
     height: 500,
     weekends:false,
-    headerToolbar: false,
+    // headerToolbar: false,
     plugins: [dayGridPlugin],
     events: [
       {
@@ -146,13 +146,7 @@ export class RightComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
   ngOnChanges(changes: SimpleChanges): void {
     this.calendarApi = this.calendarComponent.getApi();
-    if (this.type > changes['type'].previousValue) {
-      this.calendarApi.next();
-      console.log("if = ", this.type, changes['type'].previousValue);
-    } else {
-      this.calendarApi.prev();
-      console.log("else = ", this.type, changes['type'].previousValue);
-    }
-    
+    if (this.type > 0) this.calendarApi.next();
+    else this.calendarApi.prev();
   }
 }
