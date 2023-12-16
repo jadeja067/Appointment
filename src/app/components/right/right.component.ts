@@ -28,7 +28,6 @@ export class RightComponent implements OnInit, OnChanges {
     weekends:false,
     headerToolbar: false,
     plugins: [dayGridPlugin],
-    // initial value
     events: [
       {
         title: 'event 1',
