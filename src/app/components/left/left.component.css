@@ -32,6 +32,7 @@
 ::ng-deep .left-calendar .fc-col-header {
     display: none;
 }
+
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
-    width: 300px !important;
+    width: 200px !important;
 }
