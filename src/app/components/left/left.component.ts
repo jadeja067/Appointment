@@ -1,48 +1,42 @@
-import { Component, OnInit , ViewChild} from '@angular/core';
-import { CalendarOptions, Calendar } from '@fullcalendar/core'; 
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
+import { CalendarOptions, Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { FullCalendarComponent } from '@fullcalendar/angular';
-import { CalendarServicesService } from 'src/app/services/calendar-services.service';
-// import { co } from '@fullcalendar/core/internal-common';
-
 
 @Component({
   selector: 'app-left',
   templateUrl: './left.component.html',
-  styleUrls: ['./left.component.css']
+  styleUrls: ['./left.component.css'],
+  outputs: ['type'],
 })
 export class LeftComponent implements OnInit {
-
-  // Refering to #calendar 
+  // Refering to #calendar
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   calendarApi: any;
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     height: 400,
     expandRows: true,
-    plugins: [dayGridPlugin]
+    plugins: [dayGridPlugin],
   };
-  // cal! : Calendar;
-  constructor(private service: CalendarServicesService) { 
-    
-  }
-  Method(type: string){
+  type = new EventEmitter();
+  count: number = 0
+  check : number = 0
+  constructor() {}
+  Method() {
     this.calendarApi = this.calendarComponent.getApi();
-    if(type == 'n') {
-      this.service.toggleCalendar('n')
+    if (this.count >= this.check){
       this.calendarApi.next();
+      this.count++
     }
     else {
-      this.service.toggleCalendar('p')
       this.calendarApi.prev()
+      this.count *= -1
+      this.count--
     }
-    console.log(this.service.type);
-    
+    this.check = this.count
+    this.type.emit(this.count);
   }
 
-  ngOnInit(): void {
-    // this.cal.gotoDate('2018-06-01')
-  }
-  
-
+  ngOnInit(): void {}
 }
