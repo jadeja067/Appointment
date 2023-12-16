@@ -20,12 +20,22 @@ export class LeftComponent implements OnInit {
     plugins: [dayGridPlugin],
   };
   type = new EventEmitter();
+  count: number = 0
+  check : number = 0
   constructor() {}
-  Method(type: string) {
+  Method() {
     this.calendarApi = this.calendarComponent.getApi();
-    this.type.emit(type);
-    if (type == 'n') this.calendarApi.next();
-    else this.calendarApi.prev();
+    if (this.count >= this.check){
+      this.calendarApi.next();
+      this.count++
+    }
+    else {
+      this.calendarApi.prev()
+      this.count *= -1
+      this.count--
+    }
+    this.check = this.count
+    this.type.emit(this.count);
   }
 
   ngOnInit(): void {}

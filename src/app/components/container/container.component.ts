@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ContainerComponent implements OnInit {
 
   constructor() { }
-  type1!:string
-  getData(e: string){
+  type1!:number
+  getData(e: number){
     this.type1 = e
     // console.log(this.type1);
     

@@ -20,7 +20,7 @@ export class RightComponent implements OnInit, OnChanges {
   // Refering to #calendar
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   calendarApi: any;
-  type: any;
+  type!: number;
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     themeSystem: 'bootstrap5',
@@ -145,10 +145,13 @@ export class RightComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
   ngOnChanges(changes: SimpleChanges): void {
     this.calendarApi = this.calendarComponent.getApi();
-    if (this.type == 'n') {
+    if (this.type > changes['type'].previousValue) {
       this.calendarApi.next();
+      console.log("if = ", this.type, changes['type'].previousValue);
     } else {
       this.calendarApi.prev();
+      console.log("if = ", this.type, changes['type'].previousValue);
     }
+    
   }
 }
