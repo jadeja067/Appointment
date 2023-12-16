@@ -25,8 +25,10 @@ export class RightComponent implements OnInit, OnChanges {
     initialView: 'dayGridMonth',
     themeSystem: 'bootstrap5',
     height: 500,
+    weekends:false,
+    headerToolbar: false,
     plugins: [dayGridPlugin],
-    weekends: false, // initial value
+    // initial value
     events: [
       {
         title: 'event 1',
