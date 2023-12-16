@@ -1,6 +1,18 @@
 .full-heigth{
     height: 100dvh;
 }
+.left-calendar{
+    box-shadow: 1px 1px 2px 2px rgb(0, 0, 0, .1), -1px 0px 2px 2px rgb(0, 0, 0, .1);
+    border-radius: 2px;
+    width: 300px;
+    padding: 5px;
+    height: 350px !important;
+
+}
+::ng-deep .left-calendar td{
+    height: 5px;
+}
+
 ::ng-deep .left-calendar .fc-daygrid-day-number{
     color: black;
     text-decoration: none;
@@ -11,7 +23,7 @@
 ::ng-deep .left-calendar .fc-theme-standard .fc-scrollgrid, ::ng-deep .left-calendar .fc-theme-standard td, .fc-theme-standard th{
     border: none;
 }
-::ng-deep .left-calendar .fc-col-header-cell-cushion, ::ng-deep .fc-theme-standard th{
+::ng-deep .left-calendar .fc-col-header-cell-cushion, ::ng-deep .left-calendar .fc-theme-standard th{
     border: none;
     color: black;
     text-decoration: none;
@@ -24,11 +36,63 @@
 ::ng-deep .left-calendar .fc-daygrid-day-bg{
     display: none;
 }
-::ng-deep .left-calendar .fc-col-header {
-    display: none;
+
+::ng-deep .fc-today-button {
+    display: none !important;
 }
 
+::ng-deep .fc-toolbar-title{
+    font-size: 1em !important;
+}
+
+::ng-deep .fc-header-toolbar{
+    position: relative !important;
+    width: 300px !important;
+}
+
+::ng-deep .fc-day-other{
+    opacity: 0;
+}
+
+::ng-deep .fc-toolbar-chunk:first-child{
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+::ng-deep .fc-toolbar-chunk:last-child{
+    width: 100% !important;
+}
+::ng-deep .fc-button-group{
+    width: 100%;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-left: 0 !important;
+}
+::ng-deep .fc-button{
+    flex: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: black !important;
+    border-radius: 50%;
+    text-align: center !important;
+
+}
+::ng-deep .fc-button:focus{
+    box-shadow: none !important;
+    border: 2px solid black;
+}
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
+<<<<<<< HEAD
     width: 302px !important;
     height: 290px !important;
+=======
+    width: 300px !important;
+    height: 200px !important;
+    /* background-color: red !important; */
+}
+
+::ng-deep .left-calendar .fc-scroller-liquid-absolute{
+    position: static !important;
+>>>>>>> 87d6d13eb647153fac55bc408265c43ef45b5ef0
 }
