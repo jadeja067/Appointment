@@ -14,7 +14,7 @@ export class RightComponent implements OnInit {
     initialView: 'dayGridMonth',
     themeSystem: 'bootstrap5',
     height: 500,
-    headerToolbar: false,
+    // headerToolbar: true,
     plugins: [dayGridPlugin],
     events: [
       { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-16' },

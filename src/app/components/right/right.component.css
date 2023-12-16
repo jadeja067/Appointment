@@ -21,6 +21,16 @@ a{
     background-color: rgb(251, 251, 228);
 }
 
+::ng-deep .right-calendar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  ::ng-deep .right-calendar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
 ::ng-deep .eventClass{
     /* font-size: 18px !important; */
     /* color: ; */
