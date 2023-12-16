@@ -8,8 +8,12 @@
         <h4>Schedule </h4>
         <!-- <hr/> -->
         <div class="w-100 p-2 d-flex justify-content-center align-items-center">
-            <div class="row-4 left-calendar">
-                <full-calendar [options]="calendarOptions" class=""></full-calendar>
+            <div class="row-4 left-calendar position-relative">
+                <div class="position-absolute top-0 start-0 end-0 d-flex justify-content-between p-2 header">
+                    <button (click)="Method('p')" class="btn fs-5"><</button>
+                    <button (click)="Method('n')" class="btn fs-5">></button>
+                </div>
+                <full-calendar [options]="calendarOptions" #calendar class=""></full-calendar>
             </div>
         </div>
         <div class="row-6 py-2">

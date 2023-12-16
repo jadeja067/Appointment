@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CalendarServicesService } from './services/calendar-services.service'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LeftComponent } from './components/left/left.component';
@@ -23,7 +23,7 @@ import { NgForm, ReactiveFormsModule } from '@angular/forms';
     CalendarModule,
     FullCalendarModule,ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CalendarServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
