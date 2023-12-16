@@ -1,8 +1,8 @@
 <div class="row screen">
     <div class="col-3 border screen">
-        <app-left></app-left>
+        <app-left (type)="getData($event)"></app-left>
     </div>
     <div class="col-9 screen">
-        <app-right></app-right>
+        <app-right [type]="type1"></app-right>
     </div>
 </div>
