@@ -6,6 +6,8 @@
     border-radius: 2px;
     width: 300px;
     padding: 5px;
+    height: 350px !important;
+
 }
 ::ng-deep .left-calendar td{
     height: 5px;
@@ -21,7 +23,7 @@
 ::ng-deep .left-calendar .fc-theme-standard .fc-scrollgrid, ::ng-deep .left-calendar .fc-theme-standard td, .fc-theme-standard th{
     border: none;
 }
-::ng-deep .left-calendar .fc-col-header-cell-cushion, ::ng-deep .fc-theme-standard th{
+::ng-deep .left-calendar .fc-col-header-cell-cushion, ::ng-deep .left-calendar .fc-theme-standard th{
     border: none;
     color: black;
     text-decoration: none;
@@ -34,7 +36,7 @@
 ::ng-deep .left-calendar .fc-daygrid-day-bg{
     display: none;
 }
-::ng-deep .left-calendar .fc-col-header,
+
 ::ng-deep .fc-today-button {
     display: none !important;
 }
@@ -72,10 +74,20 @@
     background-color: transparent !important;
     border: none !important;
     color: black !important;
+    border-radius: 50%;
+    text-align: center !important;
+
 }
 ::ng-deep .fc-button:focus{
     box-shadow: none !important;
+    border: 2px solid black;
 }
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
     width: 300px !important;
+    height: 200px !important;
+    /* background-color: red !important; */
+}
+
+::ng-deep .left-calendar .fc-scroller-liquid-absolute{
+    position: static !important;
 }
