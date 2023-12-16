@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges, SimpleChange, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Calendar, CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import { FullCalendarComponent } from '@fullcalendar/angular';
+import { CalendarServicesService } from 'src/app/services/calendar-services.service';
 
 @Component({
   selector: 'app-right',
@@ -10,12 +12,16 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 })
 export class RightComponent implements OnInit {
 
+  // Refering to #calendar 
+  @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
+  calendarApi: any;
+
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     themeSystem: 'bootstrap5',
     height: 500,
-    // headerToolbar: true,
     plugins: [dayGridPlugin],
+    weekends: false, // initial value
     events: [
       { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-16' },
       { title: 'event 1',textColor:"rgb(255, 0, 0)",backgroundColor:"rgb(255, 0, 0,.4)",classNames:[ 'eventClass' ], date: '2023-12-16' },
@@ -41,7 +47,7 @@ export class RightComponent implements OnInit {
   email: string = ""
   description: string = ""
 
-  constructor(form: FormBuilder) {
+  constructor(private form: FormBuilder, private service: CalendarServicesService) {
     this.appointmentForm = form.group({
       name: new FormControl(),
       date: new FormControl(),
@@ -71,5 +77,10 @@ export class RightComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  // @Input() type1: string = this.service.type;
+  // ngOnChanges(this.service.type: string): any{
+  //   if(this.service.type == 'n') this.calendarApi.next()
+  //   else this.calendarApi.
+  // }
 
 }

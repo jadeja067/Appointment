@@ -6,7 +6,7 @@
     border-radius: 2px;
     width: 300px;
     padding: 5px;
-    height: 350px !important;
+    height: 300px !important;
 
 }
 ::ng-deep .left-calendar td{
@@ -48,6 +48,9 @@
 ::ng-deep .fc-header-toolbar{
     position: relative !important;
     width: 280px !important;
+    height: 20px !important;
+    margin-bottom: 0em !important;
+    padding: 1.5em 0 !important;
 }
 
 ::ng-deep .fc-day-other{
@@ -63,25 +66,9 @@
     width: 100% !important;
 }
 ::ng-deep .fc-button-group{
-    width: 100%;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    margin-left: 0 !important;
+    display: none !important;
 }
-::ng-deep .fc-button{
-    flex: 0 !important;
-    background-color: transparent !important;
-    border: none !important;
-    color: black !important;
-    border-radius: 50%;
-    text-align: center !important;
 
-}
-::ng-deep .fc-button:focus{
-    box-shadow: none !important;
-    border: 2px solid black;
-}
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
     width: 280px !important;
     height: 200px !important;
@@ -90,4 +77,7 @@
 
 ::ng-deep .left-calendar .fc-scroller-liquid-absolute{
     position: static !important;
+}
+.header{
+    z-index: 284;
 }
