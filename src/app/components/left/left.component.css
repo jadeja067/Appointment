@@ -81,6 +81,7 @@
 ::ng-deep .fc-button:focus{
     box-shadow: none !important;
     border: 2px solid black;
+    background: royalblue;
 }
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
     width: 300px !important;
