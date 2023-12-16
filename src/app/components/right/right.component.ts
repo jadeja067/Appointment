@@ -150,7 +150,7 @@ export class RightComponent implements OnInit, OnChanges {
       console.log("if = ", this.type, changes['type'].previousValue);
     } else {
       this.calendarApi.prev();
-      console.log("if = ", this.type, changes['type'].previousValue);
+      console.log("else = ", this.type, changes['type'].previousValue);
     }
     
   }
