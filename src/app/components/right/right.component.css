@@ -5,3 +5,18 @@
 a{
     color: green;
 }
+
+::ng-deep .right-calendar .fc-col-header-cell-cushion{
+    text-decoration: none;
+    color: rgb(187, 187, 1);
+    text-transform: uppercase;
+}
+
+::ng-deep .right-calendar .fc-daygrid-day-number{
+    text-decoration: none;
+    color: black;
+}
+
+::ng-deep .right-calendar .fc-scrollgrid-sync-inner:hover{
+    background-color: rgb(247, 247, 210);
+}
