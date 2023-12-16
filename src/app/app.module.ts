@@ -8,6 +8,7 @@ import { RightComponent } from './components/right/right.component';
 import { ContainerComponent } from './components/container/container.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { NgForm, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     BrowserModule,
     AppRoutingModule,
     CalendarModule,
-    FullCalendarModule
+    FullCalendarModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
