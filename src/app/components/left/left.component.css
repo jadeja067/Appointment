@@ -29,5 +29,6 @@
 }
 
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
-    width: 200px !important;
+    width: 302px !important;
+    height: 290px !important;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
-import { CalendarOptions } from '@fullcalendar/core';
+import { Calendar, CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
@@ -9,12 +9,26 @@ import dayGridPlugin from '@fullcalendar/daygrid';
   styleUrls: ['./right.component.css']
 })
 export class RightComponent implements OnInit {
+
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     themeSystem: 'bootstrap5',
     height: 500,
     headerToolbar: false,
-    plugins: [dayGridPlugin]
+    plugins: [dayGridPlugin],
+    events: [
+      { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-16' },
+      { title: 'event 1',textColor:"rgb(255, 0, 0)",backgroundColor:"rgb(255, 0, 0,.4)",classNames:[ 'eventClass' ], date: '2023-12-16' },
+      // { title: 'event 1',textColor:"rgb(187, 187, 1)",backgroundColor:"rgb(187, 187, 1,.4)",classNames:[ 'eventClass' ], date: '2023-12-16' },
+      { title: 'event 1',textColor:"rgb(187, 187, 1)",backgroundColor:"rgb(187, 187, 1,.4)",classNames:[ 'eventClass' ], date: '2023-12-12' },
+      { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-10' },
+      { title: 'event 1',textColor:"rgb(255, 0, 0)",backgroundColor:"rgb(255, 0, 0,.4)",classNames:[ 'eventClass' ], date: '2023-12-20' },
+      { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-13' },
+      { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-27' },
+      { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-30' },
+      { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-17' },
+      { title: 'event 1',textColor:"green",backgroundColor:"aquamarine",classNames:[ 'eventClass' ], date: '2023-12-307' },
+    ],
   };
   appointmentForm: FormGroup
   formData:Array<object> = []

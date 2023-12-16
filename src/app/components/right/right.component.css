@@ -18,5 +18,11 @@ a{
 }
 
 ::ng-deep .right-calendar .fc-scrollgrid-sync-inner:hover{
-    background-color: rgb(247, 247, 210);
+    background-color: rgb(251, 251, 228);
+}
+
+::ng-deep .eventClass{
+    /* font-size: 18px !important; */
+    /* color: ; */
+    border: none !important;
 }
