@@ -48,6 +48,10 @@
     width: 300px !important;
 }
 
+::ng-deep .fc-day-other{
+    opacity: 0;
+}
+
 ::ng-deep .fc-toolbar-chunk:first-child{
     position: absolute !important;
     left: 50% !important;
