@@ -17,9 +17,6 @@
     color: black;
     text-decoration: none;
 }
-::ng-deep .left-calendar .fc-daygrid-day-events{
-    display: none;
-}
 ::ng-deep .left-calendar .fc-theme-standard .fc-scrollgrid, ::ng-deep .left-calendar .fc-theme-standard td, .fc-theme-standard th{
     border: none;
 }
@@ -33,11 +30,10 @@
     padding: 0;
     margin: 0;
 }
-::ng-deep .left-calendar .fc-daygrid-day-bg{
-    display: none;
-}
-
-::ng-deep .fc-today-button {
+::ng-deep .left-calendar .fc-daygrid-day-bg,
+::ng-deep .fc-today-button,
+::ng-deep .fc-button-group,
+::ng-deep .left-calendar .fc-daygrid-day-events{
     display: none !important;
 }
 
@@ -65,19 +61,22 @@
 ::ng-deep .fc-toolbar-chunk:last-child{
     width: 100% !important;
 }
-::ng-deep .fc-button-group{
-    display: none !important;
-}
 
 ::ng-deep .left-calendar .fc-scrollgrid-sync-table{
     width: 280px !important;
     height: 200px !important;
-    /* background-color: red !important; */
 }
 
 ::ng-deep .left-calendar .fc-scroller-liquid-absolute{
     position: static !important;
 }
 .header{
-    z-index: 284;
+    z-index: 2;
+}
+.list-group-item{
+  color: rgba(0, 0, 0, 0.4);
+}
+.list-group-item:hover,
+.list-group-item:focus{
+  color: black;
 }

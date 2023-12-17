@@ -17,13 +17,23 @@
             </div>
         </div>
         <div class="row-6 py-2">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
+            <ul class="list-group list-group-flush border" *ngIf="list.length > 0; else noData">
+                <li *ngFor='let l of list ' class="list-group-item">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span>
+                    {{l.title}} 
+                    </span>
+                    <span>
+                      {{l.timeFrom}}-{{l.timeTo}}
+                    </span>
+                  </div>
+                  </li>
               </ul>
+              <ng-template #noData>
+                <ul class="list-group list-group-flush border" *ngIf="list.length > 0; else noData">
+                <li class="list-group-item">No Appointments</li>
+                </ul>
+              </ng-template>
         </div>
     </div>
 </div>

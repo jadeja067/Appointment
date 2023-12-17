@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CalendarOptions } from '@fullcalendar/core';
+import { CalendarServicesService } from '../../services/calendar-services.service'
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 
@@ -28,79 +29,7 @@ export class RightComponent implements OnInit, OnChanges {
     weekends:false,
     // headerToolbar: false,
     plugins: [dayGridPlugin],
-    events: [
-      {
-        title: 'event 1',
-        textColor: 'green',
-        backgroundColor: 'aquamarine',
-        classNames: ['eventClass'],
-        date: '2023-12-16',
-      },
-      {
-        title: 'event 1',
-        textColor: 'rgb(255, 0, 0)',
-        backgroundColor: 'rgb(255, 0, 0,.4)',
-        classNames: ['eventClass'],
-        date: '2023-12-16',
-      },
-      // { title: 'event 1',textColor:"rgb(187, 187, 1)",backgroundColor:"rgb(187, 187, 1,.4)",classNames:[ 'eventClass' ], date: '2023-12-16' },
-      {
-        title: 'event 1',
-        textColor: 'rgb(187, 187, 1)',
-        backgroundColor: 'rgb(187, 187, 1,.4)',
-        classNames: ['eventClass'],
-        date: '2023-12-12',
-      },
-      {
-        title: 'event 1',
-        textColor: 'green',
-        backgroundColor: 'aquamarine',
-        classNames: ['eventClass'],
-        date: '2023-12-10',
-      },
-      {
-        title: 'event 1',
-        textColor: 'rgb(255, 0, 0)',
-        backgroundColor: 'rgb(255, 0, 0,.4)',
-        classNames: ['eventClass'],
-        date: '2023-12-20',
-      },
-      {
-        title: 'event 1',
-        textColor: 'green',
-        backgroundColor: 'aquamarine',
-        classNames: ['eventClass'],
-        date: '2023-12-13',
-      },
-      {
-        title: 'event 1',
-        textColor: 'green',
-        backgroundColor: 'aquamarine',
-        classNames: ['eventClass'],
-        date: '2023-12-27',
-      },
-      {
-        title: 'event 1',
-        textColor: 'green',
-        backgroundColor: 'aquamarine',
-        classNames: ['eventClass'],
-        date: '2023-12-30',
-      },
-      {
-        title: 'event 1',
-        textColor: 'green',
-        backgroundColor: 'aquamarine',
-        classNames: ['eventClass'],
-        date: '2023-12-17',
-      },
-      {
-        title: 'event 1',
-        textColor: 'green',
-        backgroundColor: 'aquamarine',
-        classNames: ['eventClass'],
-        date: '2023-12-307',
-      },
-    ],
+    events: this.service.events,
   };
   appointmentForm: FormGroup;
   formData: Array<object> = [];
@@ -113,7 +42,7 @@ export class RightComponent implements OnInit, OnChanges {
   email: string = '';
   description: string = '';
 
-  constructor(private form: FormBuilder) {
+  constructor(private form: FormBuilder, private service: CalendarServicesService) {
     this.appointmentForm = form.group({
       name: new FormControl(),
       date: new FormControl(),
@@ -127,20 +56,15 @@ export class RightComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    this.formData = [
-      ...this.formData,
-      {
-        name: this.appointmentForm.value.name,
-        date: this.appointmentForm.value.date,
+    this.service.addEvent({
+        title: this.appointmentForm.value.name,
+        textColor: 'rgb(255, 0, 0)',
+        backgroundColor: 'rgb(255, 0, 0,.4)',
+        classNames: ['eventClass'],
         timeFrom: this.appointmentForm.value.timeFrom,
         timeTo: this.appointmentForm.value.timeTo,
-        checkBox: this.appointmentForm.value.checkBoxte,
-        nickName: this.appointmentForm.value.nickName,
-        email: this.appointmentForm.value.email,
-        description: this.appointmentForm.value.description,
-      },
-    ];
-    console.log(this.formData);
+        date: this.appointmentForm.value.date
+    })
   }
 
   ngOnInit(): void {}
