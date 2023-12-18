@@ -4,6 +4,7 @@ import {
   ViewChild,
   OnChanges,
   SimpleChanges,
+  AfterViewInit
 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CalendarOptions } from '@fullcalendar/core';
@@ -18,23 +19,13 @@ import { Event } from '../../classes/event'
   styleUrls: ['./right.component.css'],
   inputs: ['type'],
 })
-export class RightComponent implements OnInit, OnChanges {
+export class RightComponent implements OnInit, OnChanges, AfterViewInit {
   // Refering to #calendar
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   calendarApi: any;
   type!: number;
-  events!: Event[]
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    themeSystem: 'bootstrap5',
-    height: 500,
-    weekends:false,
-    headerToolbar: false,
-    plugins: [dayGridPlugin],
-    events: () => {
-      return this.service.data.subscribe((d: any) => d)
-    },
-  };
+  events: Event[] = []
+  calendarOptions!: CalendarOptions
   appointmentForm: FormGroup;
   formData: Array<object> = [];
   name: string = '';
@@ -45,8 +36,19 @@ export class RightComponent implements OnInit, OnChanges {
   nickName: string = '';
   email: string = '';
   description: string = '';
-
+  
   constructor(private form: FormBuilder, private service: CalendarServicesService) {
+    this.service.data.subscribe((d: any) => this.events = d)
+    console.log(this.events);
+    this.calendarOptions = {
+      initialView: 'dayGridMonth',
+      themeSystem: 'bootstrap5',
+      height: 500,
+      weekends:false,
+      headerToolbar: false,
+      plugins: [dayGridPlugin],
+      events: this.events,
+    };
     this.appointmentForm = form.group({
       name: new FormControl(),
       date: new FormControl(),
@@ -70,11 +72,25 @@ export class RightComponent implements OnInit, OnChanges {
         date: this.appointmentForm.value.date
     })
     this.service.filterEvents(this.appointmentForm.value.date)
+    this.service.data.subscribe((d: any) => this.events = d)
+    this.calendarOptions = {... this.calendarOptions, events: this.events};
   }
 
   ngOnInit(): void {
     this.service.getEvent().subscribe((data: any) => this.events = data)
     
+  }
+  ngAfterViewInit(): void {
+    this.service.data.subscribe((d: any) => this.events = d)
+    this.calendarOptions = {
+      initialView: 'dayGridMonth',
+      themeSystem: 'bootstrap5',
+      height: 500,
+      weekends:false,
+      headerToolbar: false,
+      plugins: [dayGridPlugin],
+      events: this.events,
+    };
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.calendarApi = this.calendarComponent.getApi();

@@ -50,6 +50,6 @@ export class LeftComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.data.subscribe((d:any) => this.list = d)
+    this.service.data.subscribe((ds:any) => this.list = ds.filter((d: any) => d.date == this.service.date))
   }
 }
