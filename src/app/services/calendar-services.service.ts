@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
+import { Event } from '../classes/event';
+
 @Injectable({
   providedIn: 'root'
 })
-export class CalendarServicesService {
+export class CalendarServicesService  {
   type: string = ''
-  events: any[] = [
+  newEvent!:Event
+  Date: Date = new Date();
+  today: any = [this.Date.getFullYear(), this.Date.getMonth()+1, this.Date.getDate()].join('-')
+  events: Event[] = [
       {
         title: 'event 1',
         textColor: 'green',
@@ -31,7 +36,7 @@ export class CalendarServicesService {
         classNames: ['eventClass'],
         timeFrom: '17:00',
         timeTo: '19:00',
-        date: '2023-12-17',
+        date: '2023-12-18',
       },
       {
         title: 'event 1',
@@ -43,16 +48,20 @@ export class CalendarServicesService {
         date: '2023-12-20',
       },
     ]
-  data = Observable.create((observer: any) => observer.next(this.events))
+  data = new Observable((observer: any) => observer.next(this.events))
   constructor() { }
   toggleCalendar(s: string): void{
     this.type = s
   }
   addEvent(data: any){
+    this.newEvent = data
     this.events.push(data)
   }
   getEvent(){
     return this.data
+  }
+  filterEvents(date: string = this.today){
+    return new Observable((observer: any) => observer.next(this.events.filter((d)=> d.date == date)))
   }
 
 }

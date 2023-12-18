@@ -10,6 +10,7 @@ import { CalendarOptions } from '@fullcalendar/core';
 import { CalendarServicesService } from '../../services/calendar-services.service'
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { FullCalendarComponent } from '@fullcalendar/angular';
+import { Event } from '../../classes/event'
 
 @Component({
   selector: 'app-right',
@@ -22,12 +23,13 @@ export class RightComponent implements OnInit, OnChanges {
   @ViewChild('calendar') calendarComponent!: FullCalendarComponent;
   calendarApi: any;
   type!: number;
+  events!: Event[]
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     themeSystem: 'bootstrap5',
     height: 500,
     weekends:false,
-    // headerToolbar: false,
+    headerToolbar: false,
     plugins: [dayGridPlugin],
     events: this.service.events,
   };
@@ -67,7 +69,10 @@ export class RightComponent implements OnInit, OnChanges {
     })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.getEvent().subscribe((data: any) => this.events = data)
+    
+  }
   ngOnChanges(changes: SimpleChanges): void {
     this.calendarApi = this.calendarComponent.getApi();
     if (this.type > 0) this.calendarApi.next();

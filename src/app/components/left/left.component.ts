@@ -4,6 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction'
 import { CalendarServicesService } from '../../services/calendar-services.service'
+import { inputs } from '@syncfusion/ej2-angular-calendars/src/calendar/calendar.component';
 
 @Component({
   selector: 'app-left',
@@ -19,14 +20,19 @@ export class LeftComponent implements OnInit {
     initialView: 'dayGridMonth',
     height: 400,
     expandRows: true,
-    dateClick: info => this.setListValues(info.dateStr),
+    dateClick: date => this.setListValues(date.dateStr),
     plugins: [dayGridPlugin, interactionPlugin],
   };
   type = new EventEmitter();
   list: any[] = []
   count1: number = 1
   count2: number = -1
-  constructor(private service: CalendarServicesService) {}
+  constructor(private service: CalendarServicesService) {
+    
+  }
+  calcApi(){
+    this.calendarApi = this.calendarComponent.getApi()
+  }
   next(){
     this.calendarApi = this.calendarComponent.getApi()
     this.calendarApi.next()
@@ -38,11 +44,11 @@ export class LeftComponent implements OnInit {
     this.type.emit(this.count2--)
   }
   
-  setListValues(info: any){
-    this.service.data.subscribe((ds:any) => this.list = ds.filter((d:any) => d.date == info))
+  setListValues(date: any = undefined){    
+    this.service.filterEvents(date).subscribe((d:any) => this.list = d)
   }
-  
+
   ngOnInit(): void {
-    this.service.data.subscribe((ds:any) => this.list = ds)
+    this.service.filterEvents().subscribe((d:any) => this.list = d)
   }
 }
