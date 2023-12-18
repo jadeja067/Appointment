@@ -31,7 +31,9 @@ export class RightComponent implements OnInit, OnChanges {
     weekends:false,
     headerToolbar: false,
     plugins: [dayGridPlugin],
-    events: this.service.events,
+    events: () => {
+      return this.service.data.subscribe((d: any) => d)
+    },
   };
   appointmentForm: FormGroup;
   formData: Array<object> = [];
@@ -67,6 +69,7 @@ export class RightComponent implements OnInit, OnChanges {
         timeTo: this.appointmentForm.value.timeTo,
         date: this.appointmentForm.value.date
     })
+    this.service.filterEvents(this.appointmentForm.value.date)
   }
 
   ngOnInit(): void {

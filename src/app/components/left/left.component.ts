@@ -4,7 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { FullCalendarComponent } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction'
 import { CalendarServicesService } from '../../services/calendar-services.service'
-import { inputs } from '@syncfusion/ej2-angular-calendars/src/calendar/calendar.component';
+import { Event } from '../../classes/event';
 
 @Component({
   selector: 'app-left',
@@ -25,7 +25,7 @@ export class LeftComponent implements OnInit {
     plugins: [dayGridPlugin, interactionPlugin],
   };
   type = new EventEmitter();
-  list: any[] = []
+  list: Event[] = []
   count1: number = 1
   count2: number = -1
   constructor(private service: CalendarServicesService) {
@@ -46,10 +46,10 @@ export class LeftComponent implements OnInit {
   }
   
   setListValues(date: any = undefined){    
-    this.service.filterEvents(date).subscribe((d:any) => this.list = d)
+    this.service.data.subscribe((ds:any) => this.list = ds.filter((d: any) => d.date == this.service.date))
   }
 
   ngOnInit(): void {
-    this.service.filterEvents().subscribe((d:any) => this.list = d)
+    this.service.data.subscribe((d:any) => this.list = d)
   }
 }
