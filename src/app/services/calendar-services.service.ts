@@ -10,6 +10,7 @@ export class CalendarServicesService  {
   newEvent!:Event
   Date: Date = new Date();
   today: any = [this.Date.getFullYear(), this.Date.getMonth()+1, this.Date.getDate()].join('-')
+  date: string = this.today
   events: Event[] = [
       {
         title: 'event 1',
@@ -60,8 +61,11 @@ export class CalendarServicesService  {
   getEvent(){
     return this.data
   }
-  filterEvents(date: string = this.today){
-    return new Observable((observer: any) => observer.next(this.events.filter((d)=> d.date == date)))
+  filterEvents(date?: string){
+    if (date) this.date = date
+    console.log(this.date);
+    const fileredEvents = this.events.filter((d)=> d.date == this.date)
+    return new Observable((observer: any) => observer.next(fileredEvents))
   }
 
 }

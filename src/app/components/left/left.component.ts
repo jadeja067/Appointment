@@ -20,6 +20,7 @@ export class LeftComponent implements OnInit {
     initialView: 'dayGridMonth',
     height: 400,
     expandRows: true,
+    // navLinks: true,
     dateClick: date => this.setListValues(date.dateStr),
     plugins: [dayGridPlugin, interactionPlugin],
   };
