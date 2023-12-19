@@ -63,11 +63,6 @@ export class CalendarServicesService {
     },
   ];
   data = new Observable((observer: any) => observer.next(this.events));
-  fEvent = new Observable((observer:any) => {
-    this.data.subscribe((ds:any)=>{
-      observer.next(ds.filter((d: any) => d.date == this.date))
-    })
-  })
   constructor() {}
   toggleCalendar(s: string): void {
     this.type = s;

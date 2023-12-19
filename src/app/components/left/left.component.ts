@@ -31,9 +31,6 @@ export class LeftComponent implements OnInit {
   constructor(private service: CalendarServicesService) {
     
   }
-  calcApi(){
-    this.calendarApi = this.calendarComponent.getApi()
-  }
   next(){
     this.calendarApi = this.calendarComponent.getApi()
     this.calendarApi.next()
