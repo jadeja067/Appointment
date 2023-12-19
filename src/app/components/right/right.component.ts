@@ -61,23 +61,19 @@ export class RightComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   onSubmit() {
-    this.service.addEvent({
-        title: this.appointmentForm.value.name,
-        textColor: 'rgb(255, 0, 0)',
-        backgroundColor: 'rgb(255, 0, 0,.4)',
-        classNames: ['eventClass'],
-        timeFrom: this.appointmentForm.value.timeFrom,
-        timeTo: this.appointmentForm.value.timeTo,
-        date: this.appointmentForm.value.date
-    })
+    const newEvent = {
+      title: this.appointmentForm.value.name,
+      textColor: 'rgb(255, 0, 0)',
+      backgroundColor: 'rgb(255, 0, 0,.4)',
+      classNames: ['eventClass'],
+      timeFrom: this.appointmentForm.value.timeFrom,
+      timeTo: this.appointmentForm.value.timeTo,
+      date: this.appointmentForm.value.date
+  }
+    this.service.addEvent(newEvent)
     this.service.filterEvents(this.appointmentForm.value.date)
-    let events: Event[] = []
-    this.service.data.subscribe((d:any) => events = d)
     this.calendarApi = this.calendarComponent.getApi();
-    this.calendarApi.refetchEvents(events)
-    console.log(this.calendarApi.refetchEvents(events))
-    // this.service.data.subscribe((d: any) => this.events = d)
-    // this.calendarOptions = {... this.calendarOptions, events: this.events};
+    this.calendarApi.addEvent(newEvent)
   }
 
   ngOnInit(): void {
