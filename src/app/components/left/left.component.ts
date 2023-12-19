@@ -28,9 +28,7 @@ export class LeftComponent implements OnInit {
   list: Event[] = []
   count1: number = 1
   count2: number = -1
-  constructor(private service: CalendarServicesService) {
-    
-  }
+  constructor(private service: CalendarServicesService) {}
   next(){
     this.calendarApi = this.calendarComponent.getApi()
     this.calendarApi.next()
@@ -42,11 +40,14 @@ export class LeftComponent implements OnInit {
     this.type.emit(this.count2--)
   }
   
-  setListValues(date: any = undefined){    
+  setListValues(date: string | undefined = undefined){   
+    if(date) this.service.date = date 
     this.service.data.subscribe((ds:any) => this.list = ds.filter((d: any) => d.date == this.service.date))
   }
 
   ngOnInit(): void {
+    console.log(this.service.date);
+    
     this.service.data.subscribe((ds:any) => this.list = ds.filter((d: any) => d.date == this.service.date))
   }
 }

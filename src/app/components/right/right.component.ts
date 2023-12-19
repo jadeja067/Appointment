@@ -72,8 +72,8 @@ export class RightComponent implements OnInit, OnChanges, AfterViewInit {
         date: this.appointmentForm.value.date
     })
     this.service.filterEvents(this.appointmentForm.value.date)
-    this.service.data.subscribe((d: any) => this.events = d)
-    this.calendarOptions = {... this.calendarOptions, events: this.events};
+    // this.service.data.subscribe((d: any) => this.events = d)
+    // this.calendarOptions = {... this.calendarOptions, events: this.events};
   }
 
   ngOnInit(): void {

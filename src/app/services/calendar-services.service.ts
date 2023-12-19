@@ -17,16 +17,16 @@ export class CalendarServicesService {
   date: string | any = this.today;
   events: Event[] = [
     {
-      title: 'event 1',
+      title: 'Drink Water',
       textColor: 'green',
       backgroundColor: 'aquamarine',
       classNames: ['eventClass'],
       timeFrom: '11:00',
-      timeTo: '12:00',
+      timeTo: '11:05',
       date: '2023-12-07',
     },
     {
-      title: 'event 1',
+      title: 'Eat Food',
       textColor: 'rgb(255, 0, 0)',
       backgroundColor: 'rgb(255, 0, 0,.4)',
       classNames: ['eventClass'],
@@ -35,22 +35,22 @@ export class CalendarServicesService {
       date: '2023-12-05',
     },
     {
-      title: 'event 1',
+      title: 'Reading',
       textColor: 'green',
       backgroundColor: 'aquamarine',
       classNames: ['eventClass'],
       timeFrom: '18:00',
       timeTo: '19:00',
-      date: '2023-12-18',
+      date: '2023-12-19',
     },
     {
-      title: 'event 2',
+      title: 'Writting',
       textColor: 'green',
       backgroundColor: 'aquamarine',
       classNames: ['eventClass'],
       timeFrom: '19:00',
       timeTo: '20:00',
-      date: '2023-12-18',
+      date: '2023-12-19',
     },
     {
       title: 'event 1',
@@ -59,7 +59,61 @@ export class CalendarServicesService {
       classNames: ['eventClass'],
       timeFrom: '11:00',
       timeTo: '12:00',
-      date: '2023-12-20',
+      date: '2023-12-13',
+    },
+    {
+      title: 'event 1',
+      textColor: 'rgb(255, 0, 0)',
+      backgroundColor: 'rgb(255, 0, 0,.4)',
+      classNames: ['eventClass'],
+      timeFrom: '11:00',
+      timeTo: '12:00',
+      date: '2023-12-13',
+    },
+    {
+      title: 'event 1',
+      textColor: 'rgb(255, 0, 0)',
+      backgroundColor: 'rgb(255, 0, 0,.4)',
+      classNames: ['eventClass'],
+      timeFrom: '11:00',
+      timeTo: '12:00',
+      date: '2023-12-15',
+    },
+    {
+      title: 'event 1',
+      textColor: 'rgb(255, 0, 0)',
+      backgroundColor: 'rgb(255, 0, 0,.4)',
+      classNames: ['eventClass'],
+      timeFrom: '11:00',
+      timeTo: '12:00',
+      date: '2023-12-28',
+    },
+    {
+      title: 'event 1',
+      textColor: 'rgb(255, 0, 0)',
+      backgroundColor: 'rgb(255, 0, 0,.4)',
+      classNames: ['eventClass'],
+      timeFrom: '11:00',
+      timeTo: '12:00',
+      date: '2023-12-22',
+    },
+    {
+      title: 'event 1',
+      textColor: 'rgb(255, 0, 0)',
+      backgroundColor: 'rgb(255, 0, 0,.4)',
+      classNames: ['eventClass'],
+      timeFrom: '11:00',
+      timeTo: '12:00',
+      date: '2023-12-21',
+    },
+    {
+      title: 'event 1',
+      textColor: 'rgb(255, 0, 0)',
+      backgroundColor: 'rgb(255, 0, 0,.4)',
+      classNames: ['eventClass'],
+      timeFrom: '11:00',
+      timeTo: '12:00',
+      date: '2023-12-25',
     },
   ];
   data = new Observable((observer: any) => observer.next(this.events));
@@ -69,7 +123,9 @@ export class CalendarServicesService {
   }
   addEvent(data: any) {
     this.newEvent = data;
-    this.events.push(data);
+    this.data.subscribe((d:any) => {
+      d.push(data)
+    })
   }
   getEvent() {
     return this.data;
