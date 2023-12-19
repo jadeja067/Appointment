@@ -116,19 +116,16 @@ export class CalendarServicesService {
       date: '2023-12-25',
     },
   ];
-  data = new Observable((observer: any) => observer.next(this.events));
   constructor() {}
   toggleCalendar(s: string): void {
     this.type = s;
   }
   addEvent(data: any) {
     this.newEvent = data;
-    this.data.subscribe((d:any) => {
-      d.push(data)
-    })
+    this.events.push(data)
   }
   getEvent() {
-    return this.data;
+    return this.events;
   }
   filterEvents(date?: string) {
     this.date = date

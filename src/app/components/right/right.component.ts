@@ -38,7 +38,7 @@ export class RightComponent implements OnInit, OnChanges, AfterViewInit {
   description: string = '';
   
   constructor(private form: FormBuilder, private service: CalendarServicesService) {
-    this.service.data.subscribe((d: any) => this.events = d)
+    this.events = this.service.events
     this.calendarOptions = {
       initialView: 'dayGridMonth',
       themeSystem: 'bootstrap5',
@@ -77,11 +77,11 @@ export class RightComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.service.getEvent().subscribe((data: any) => this.events = data)
+    this.events = this.service.events
     
   }
   ngAfterViewInit(): void {
-    this.service.data.subscribe((d: any) => this.events = d)
+    this.events = this.service.events
     this.calendarOptions = {
       initialView: 'dayGridMonth',
       themeSystem: 'bootstrap5',
