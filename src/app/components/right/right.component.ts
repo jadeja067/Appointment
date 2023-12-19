@@ -73,7 +73,6 @@ export class RightComponent implements OnInit, OnChanges, AfterViewInit {
     this.service.addEvent(newEvent)
     this.service.filterEvents(this.appointmentForm.value.date)
     this.calendarApi = this.calendarComponent.getApi();
-    this.calendarApi.date = this.appointmentForm.value.date
     this.calendarApi.addEvent(newEvent)
   }
 
